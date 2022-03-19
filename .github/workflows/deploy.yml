@@ -6,6 +6,9 @@ env:
   AWS_ROLE_ARN: arn:aws:iam::721814306249:role/ta9to.com-GithubActions-DeployToS3
   AWS_REGION : ap-northeast-1
   BUCKET_NAME : ta9to.com
+permissions:
+  id-token: write
+  contents: read
 jobs:
   deploy-to-s3:
     runs-on: ubuntu-latest
