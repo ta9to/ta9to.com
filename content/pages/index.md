@@ -17,7 +17,7 @@ sections:
           url: https://github.com/ta9to/php-riot-games-api
       - type: project
         title: プログラミング教育系Youtuber
-        description: プログラミング教育系Youtuberとして活躍。アップロード実績：１本
+        description: プログラミング教育系Youtuberとして活躍。アップロード数：1本
         link:
           url: https://www.youtube.com/watch?v=PQeuNgLrRQg
   - id: contact
@@ -27,6 +27,4 @@ sections:
         description:
         twitter:
           url: https://twitter.com/ta99to
-        email:
-          url: mailto:ta9to.kd@gmail.com
 ---
