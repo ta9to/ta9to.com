@@ -18,8 +18,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
-        run: npm ci
-        run: npm run export
+        run: |
+          npm ci
+          npm run export
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
