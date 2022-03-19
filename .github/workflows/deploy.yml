@@ -18,15 +18,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
-        run: |
-          npm ci
-          npm run export
+      - run: npm ci
+      - run: npm run export
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: ${{ env.AWS_ROLE_ARN }}
           role-session-name: github-oidc-role-session
           aws-region: ${{ env.AWS_REGION }}
-      - name:  Sync out/ to s3
-        run: |
-          aws s3 sync ./out s3://${{ env.BUCKET_NAME }}/
+      - run: aws s3 sync ./out s3://${{ env.BUCKET_NAME }}/
