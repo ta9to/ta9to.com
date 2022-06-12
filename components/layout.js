@@ -18,7 +18,7 @@ import { useRouter } from 'next/router'
 
 const tabs = [
     { name: 'Profile', href: '/'},
-    { name: 'Photo', href: '/photo'},
+    { name: 'Photo', href: '/photo.html'},
 ]
 
 const profile = {
