@@ -30,4 +30,6 @@ yarn-error.log*
 
 # vercel
 .vercel
-/.idea
+
+# generated files
+/public/rss/
