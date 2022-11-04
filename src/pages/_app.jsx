@@ -3,6 +3,9 @@ import { useEffect, useRef } from 'react'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 
+import usePageView from '@/hooks/usePageView'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
+
 import '@/styles/tailwind.css'
 import 'focus-visible'
 
@@ -17,10 +20,13 @@ function usePrevious(value) {
 }
 
 export default function App({ Component, pageProps, router }) {
+  usePageView()
+
   let previousPathname = usePrevious(router.pathname)
 
   return (
     <>
+      <GoogleAnalytics />
       <div className="fixed inset-0 flex justify-center sm:px-8">
         <div className="flex w-full max-w-7xl lg:px-8">
           <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />

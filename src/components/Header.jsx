@@ -8,6 +8,8 @@ import { Container } from '@/components/Container'
 import avatarImage from '@/images/avatar.jpg'
 import { Fragment, useEffect, useRef } from 'react'
 
+import * as gtag from '@/lib/gtag'
+
 function CloseIcon(props) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
@@ -180,6 +182,12 @@ function ModeToggle() {
     let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
     let isSystemDarkMode = darkModeMediaQuery.matches
     let isDarkMode = document.documentElement.classList.toggle('dark')
+
+    gtag.event({
+      action: 'toggle_mode',
+      category: 'Header',
+      label: isDarkMode,
+    })
 
     if (isDarkMode === isSystemDarkMode) {
       delete window.localStorage.isDarkMode
