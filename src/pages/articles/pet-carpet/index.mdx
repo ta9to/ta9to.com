@@ -14,7 +14,7 @@ export const items = [
   {
     image: nocoffee,
     name: 'NOCOFFEE',
-    url: 'https://www.low-ya.com/goods/LZS1C',
+    url: 'https://px.a8.net/svt/ejp?a8mat=3NN1YI+7K348I+3V4W+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.low-ya.com%2Fgoods%2FLZS1C',
     size: '幅185×奥行185cm',
     price: '¥18,990'
   },
@@ -45,7 +45,7 @@ export function Table() {
                   <Image className="h-10 w-10" src={item.image} alt="" style={{borderRadius:'0px'}} />
                 </div>
                 <div className="ml-4">
-                  <div className="font-medium text-gray-900"><a target='_blank' href={item.url}>{item.name}</a></div>
+                  <div className="font-medium text-gray-900"><a href={item.url} rel='nofollow'>{item.name}</a></div>
                 </div>
               </div>
             </td>
