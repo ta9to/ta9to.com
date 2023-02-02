@@ -42,7 +42,7 @@ export default function About() {
         <title>About - Spencer Sharp</title>
         <meta
           name="description"
-          content="I’m Takuto Kudo. I live in Asia/Tokyo."
+          content="I’m TA9TO, a software designer based in Asia/Tokyo."
         />
       </Head>
       <Container className="mt-16 sm:mt-32">

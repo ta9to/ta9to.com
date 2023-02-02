@@ -2,22 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1254cdc3-47b1-4432-a5a8-1b9f802f9994" name="変更" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ta9to.com.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/avatar.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/portrait.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/formatDate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/formatDate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/getAllArticles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/getAllArticles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vercel.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/generateRssFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/generateRssFeed.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/about.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/about.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/articles/car-mechanical-parking/index.mdx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/articles/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/articles/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/articles/pet-carpet/index.mdx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/articles/pet-carpet/nocoffee.webp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +41,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/images/photos" />
       <recent name="$PROJECT_DIR$/src/images" />
     </key>
@@ -64,7 +54,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675343394744</updated>
-      <workItem from="1675343396749" duration="3739000" />
+      <workItem from="1675343396749" duration="5517000" />
     </task>
     <servers />
   </component>

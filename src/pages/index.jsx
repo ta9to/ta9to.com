@@ -253,11 +253,11 @@ export default function Home({ articles }) {
     <>
       <Head>
         <title>
-          Takuto Kudo - Software engineer
+          TA9TO - Software engineer
         </title>
         <meta
           name="description"
-          content="I’m Spencer, a software designer and entrepreneur based in New York City. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms."
+          content="I’m TA9TO, a software designer based in Asia/Tokyo."
         />
       </Head>
       <Container className="mt-9">
