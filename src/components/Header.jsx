@@ -5,7 +5,7 @@ import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import avatarImage from '@/images/avatar.jpg'
+import avatarImage from '@/images/d6f09604-d117-46d9-979d-205888c3e906.png'
 import { Fragment, useEffect, useRef } from 'react'
 
 import * as gtag from '@/lib/gtag'

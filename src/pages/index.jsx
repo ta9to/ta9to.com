@@ -8,14 +8,12 @@ import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import {
   TwitterIcon,
-  InstagramIcon,
   GitHubIcon,
-  LinkedInIcon,
 } from '@/components/SocialIcons'
 import image1 from '@/images/photos/image-1.jpg'
-import image2 from '@/images/photos/image-1.jpg'
+import image2 from '@/images/photos/redbull.jpeg'
 import image3 from '@/images/photos/image-1.jpg'
-import image4 from '@/images/photos/image-1.jpg'
+import image4 from '@/images/photos/build_s1_azuki.png'
 import image5 from '@/images/photos/image-1.jpg'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
@@ -83,13 +81,13 @@ function ArrowDownIcon(props) {
 function Article({ article }) {
   return (
     <Card as="article">
-      <Card.Title href={`/articles/${article.slug}`}>
+      <Card.Title href={article.link}>
         {article.title}
       </Card.Title>
-      <Card.Eyebrow as="time" dateTime={article.date} decorate>
-        {formatDate(article.date)}
+      <Card.Eyebrow as="time" dateTime={article.pubDate} decorate>
+        {formatDate(article.pubDate)}
       </Card.Eyebrow>
-      <Card.Description>{article.description}</Card.Description>
+      <Card.Description>{article.content}</Card.Description>
       <Card.Cta>Read article</Card.Cta>
     </Card>
   )
@@ -268,7 +266,7 @@ export default function Home({ articles }) {
             Software engineer.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Takuto, a software engineer based in Asia/Tokyo.
+            I’m TA9TO, a software engineer based in Asia/Tokyo.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
@@ -277,19 +275,9 @@ export default function Home({ articles }) {
               icon={TwitterIcon}
             />
             <SocialLink
-              href="https://www.instagram.com/ta99to/"
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
-            />
-            <SocialLink
               href="https://github.com/ta9to"
               aria-label="Follow on GitHub"
               icon={GitHubIcon}
-            />
-            <SocialLink
-              href="https://www.linkedin.com/in/ta9to/"
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
             />
           </div>
         </div>
@@ -299,7 +287,7 @@ export default function Home({ articles }) {
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
             {articles.map((article) => (
-              <Article key={article.slug} article={article} />
+              <Article key={article.id} article={article} />
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">

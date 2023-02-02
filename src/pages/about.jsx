@@ -6,11 +6,9 @@ import clsx from 'clsx'
 import { Container } from '@/components/Container'
 import {
   TwitterIcon,
-  InstagramIcon,
   GitHubIcon,
-  LinkedInIcon,
 } from '@/components/SocialIcons'
-import portraitImage from '@/images/portrait.jpg'
+import portraitImage from '@/images/d6f09604-d117-46d9-979d-205888c3e906.png'
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
@@ -64,8 +62,7 @@ export default function About() {
               Hello, world!
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-              <p>工藤択斗（くどう たくと）<br/>ナイル株式会社 メディアテクノロジー事業部 VPoE</p>
-              <p>2012年にエンジニアとして入社。コンサルティング事業のアクセス解析やコンテンツ管理のツール開発に携わった後にナイルを退職。起業し受託開発や飲食店立ち上げなど経験し、2017年にナイルへ再入社。電子コミックサービス立ち上げの開発責任者などを経て現在はVPoEとしてエンジニア部門の責任者を務める。</p>
+              <p>I’m TA9TO, a software engineer based in Asia/Tokyo.</p>
             </div>
           </div>
           <div className="lg:pl-20">
@@ -73,14 +70,8 @@ export default function About() {
               <SocialLink href="https://twitter.com/ta99to" icon={TwitterIcon}>
                 Follow on Twitter
               </SocialLink>
-              <SocialLink href="https://www.instagram.com/ta99to/" icon={InstagramIcon} className="mt-4">
-                Follow on Instagram
-              </SocialLink>
               <SocialLink href="https://github.com/ta9to" icon={GitHubIcon} className="mt-4">
                 Follow on GitHub
-              </SocialLink>
-              <SocialLink href="https://www.linkedin.com/in/ta9to/" icon={LinkedInIcon} className="mt-4">
-                Follow on LinkedIn
               </SocialLink>
               <SocialLink
                 href="mailto:takuto_kd@nyle.co.jp"
