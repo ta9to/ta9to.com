@@ -1,9 +1,23 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,jsx}'],
   darkMode: 'class',
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+      require('@tailwindcss/line-clamp'),
+      require('@tailwindcss/typography')
+  ],
   theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Satoshi', ...defaultTheme.fontFamily.sans],
+      },
+      spacing: {
+        18: '4.5rem',
+        112: '28rem',
+        120: '30rem',
+      },
+    },
     fontSize: {
       xs: ['0.8125rem', { lineHeight: '1.5rem' }],
       sm: ['0.875rem', { lineHeight: '1.5rem' }],
