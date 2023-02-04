@@ -32,6 +32,9 @@ export default function App({ Component, pageProps, router }) {
     usePageView()
     let previousPathname = usePrevious(router.pathname)
     const isPodcast = router.pathname.startsWith('/podcast')
+    if (process.browser && isPodcast) {
+        document.documentElement.classList.remove('dark')
+    }
     return (
         <>
             <GoogleAnalytics />
