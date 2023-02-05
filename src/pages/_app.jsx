@@ -12,6 +12,28 @@ import { Header } from '@/components/Header'
 import { AudioProvider } from '@/components/podcast/AudioProvider'
 import { Layout } from '@/components/podcast/Layout'
 
+/**
+ * riotapidoc
+ */
+import Head from 'next/head'
+import { Router, useRouter } from 'next/router'
+import { MDXProvider } from '@mdx-js/react'
+
+import { RiotApiDocLayout } from '@/components/riotapidoc/RiotApiDocLayout'
+import * as mdxComponents from '@/components/riotapidoc/mdx'
+import { useMobileNavigationStore } from '@/components/riotapidoc/MobileNavigation'
+
+import '@/styles/tailwind.css'
+import 'focus-visible'
+
+function onRouteChange() {
+    useMobileNavigationStore.getState().close()
+}
+
+Router.events.on('hashChangeStart', onRouteChange)
+Router.events.on('routeChangeComplete', onRouteChange)
+Router.events.on('routeChangeError', onRouteChange)
+
 import usePageView from '@/hooks/usePageView'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 
@@ -32,13 +54,15 @@ export default function App({ Component, pageProps, router }) {
     usePageView()
     let previousPathname = usePrevious(router.pathname)
     const isPodcast = router.pathname.startsWith('/podcast')
+    const isRiotApiDoc = router.pathname.startsWith('/riotapidoc')
     if (process.browser && isPodcast) {
         document.documentElement.classList.remove('dark')
     }
+    let _router = useRouter()
     return (
         <>
             <GoogleAnalytics />
-            {!isPodcast && (
+            {!isPodcast && !isRiotApiDoc && (
                 <>
                     <div className="fixed inset-0 flex justify-center sm:px-8">
                         <div className="flex w-full max-w-7xl lg:px-8">
@@ -60,6 +84,23 @@ export default function App({ Component, pageProps, router }) {
                         <Component {...pageProps} />
                     </Layout>
                 </AudioProvider>
+            )}
+            {isRiotApiDoc && (
+                <>
+                    <Head>
+                        {_router.pathname === '/riotapidoc' ? (
+                            <title>Protocol API Reference</title>
+                        ) : (
+                            <title>{`${pageProps.title} - Protocol API Reference`}</title>
+                        )}
+                        <meta name="description" content={pageProps.description} />
+                    </Head>
+                    <MDXProvider components={mdxComponents}>
+                        <RiotApiDocLayout {...pageProps}>
+                            <Component {...pageProps} />
+                        </RiotApiDocLayout>
+                    </MDXProvider>
+                </>
             )}
         </>
     )

@@ -1,0 +1,93 @@
+export const description = 'CLASH-V1'
+
+# CLASH-V1
+
+## PlayerDto
+
+<Properties>
+    <Property name="summonerId" type="string">
+    </Property>
+    <Property name="teamId" type="string">
+    </Property>
+    <Property name="position" type="string">
+        (UNSELECTED、FILL、TOP、JUNGLE、MIDDLE、BOTTOM、UTILITY)
+    </Property>
+    <Property name="role" type="string">
+        (CAPTAIN, MEMBER)
+    </Property>
+</Properties>
+
+---
+
+## Summoner IDでプレイヤーを取得する {{ tag: 'GET', label: '/lol/clash/v1/players/by-summoner/{summonerId}' }}
+
+<Row>
+    <Col>
+        ### Required attributes
+        <Properties>
+            <Property name="summonerId" type="string" />
+        </Properties>
+        ### Return value
+        List[<a href="/riotapidoc/clash-v1/#player-dto">PlayerDto</a>]
+    </Col>
+    <Col sticky>
+
+        ```bash {{ title: 'cURL' }}
+        curl -G https://jp1.api.riotgames.com/lol/clash/v1/players/by-summoner/{summonerId} \
+        -H "X-Riot-Token: {token}"
+        ```
+
+        ```json {{ title: 'Response' }}
+        []
+        ```
+    </Col>
+</Row>
+
+---
+
+## team IDでチームを取得する。 {{ tag: 'GET', label: '/lol/clash/v1/teams/{teamId}' }}
+
+<Row>
+    <Col>
+        ### Required attributes
+        <Properties>
+            <Property name="summonerId" type="string" />
+        </Properties>
+        ### Return value
+        TeamDto
+        <Properties>
+            <Property name="id" type="string">
+            </Property>
+            <Property name="tournamentId" type="int">
+            </Property>
+            <Property name="name" type="string">
+            </Property>
+            <Property name="iconId" type="int">
+            </Property>
+            <Property name="tier" type="int">
+            </Property>
+            <Property name="captain" type="string">
+                チームキャプテンのサモナーID。
+            </Property>
+            <Property name="abbreviation" type="string">
+            </Property>
+            <Property name="players" type="List[PlayerDto]">
+                チームメンバー
+            </Property>
+        </Properties>
+
+    </Col>
+    <Col sticky>
+
+        ```bash {{ title: 'cURL' }}
+        curl -G https://jp1.api.riotgames.com/lol/clash/v1/players/by-summoner/{summonerId} \
+        -H "X-Riot-Token: {token}"
+        ```
+
+        ```json {{ title: 'Response' }}
+        # TeamDto
+        ```
+    </Col>
+</Row>
+
+---

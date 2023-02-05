@@ -34,3 +34,4 @@ yarn-error.log*
 # generated files
 /public/rss/
 .idea/workspace.xml
+.env

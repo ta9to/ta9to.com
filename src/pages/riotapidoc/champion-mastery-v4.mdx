@@ -1,0 +1,184 @@
+export const description = 'CHAMPION-MASTERY-V4'
+
+# CHAMPION-MASTERY-V4
+
+## ChampionMasteryDto
+
+プレイヤーとチャンピオンの組み合わせによる、シングルチャンピオンマスタリーの情報が含まれるオブジェクトです。
+
+<Properties>
+    <Property name="championPointsUntilNextLevel" type="long">
+        次のレベルに到達するために必要なポイント数です。このチャンピオンのレベルが最大になった場合は0になります。
+    </Property>
+    <Property name="chestGranted" type="boolean">
+        今シーズン、このチャンピオンにチェストが付与されたのか、されなかったのか。
+    </Property>
+    <Property name="championId" type="long">
+        このエントリーのChampion ID
+    </Property>
+    <Property name="lastPlayTime" type="long">
+        このチャンピオンがこのプレーヤーによってプレイされた最後の時間 - Unixミリ秒時間フォーマットで。
+    </Property>
+    <Property name="championLevel" type="int">
+        指定された選手とチャンピオンの組み合わせのチャンピオンレベル。
+    </Property>
+    <Property name="summonerId" type="string">
+        このエントリーのサモナーID。(暗号化)
+    </Property>
+    <Property name="championPoints" type="int">
+        このプレーヤーとチャンピオンの組み合わせのチャンピオンポイントの総数です - チャンピオンレベルの決定に使用されます。
+    </Property>
+    <Property name="championPointsSinceLastLevel" type="long">
+        現在のレベルを達成してから獲得したポイント数。
+    </Property>
+    <Property name="tokensEarned" type="int">
+        現在のchampionLevelでこのチャンピオンが獲得したトークンです。championLevelが上がると、tokensEarnedは0にリセットされます。
+    </Property>
+</Properties>
+
+---
+
+## championマスタリーの全項目をチャンピオンポイント数の降順で取得する {{ tag: 'GET', label: '/lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}' }}
+
+<Row>
+    <Col>
+
+        ### Required attributes
+        <Properties>
+            <Property name="encryptedSummonerId" type="string" />
+        </Properties>
+
+        ### Return value
+        List[<a href="/riotapidoc/champion-mastery-v4/#champion-mastery-dto">ChampionMasteryDto</a>]
+
+    </Col>
+    <Col sticky>
+
+        ```bash {{ title: 'cURL' }}
+        curl -G https://jp1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId} \
+        -H "X-Riot-Token: {token}"
+        ```
+
+        ```json {{ title: 'Response' }}
+        [
+            {
+                "championId": 245,
+                "championLevel": 7,
+                "championPoints": 1157995,
+                "lastPlayTime": 1659760490000,
+                "championPointsSinceLastLevel": 1136395,
+                "championPointsUntilNextLevel": 0,
+                "chestGranted": false,
+                "tokensEarned": 0,
+                "summonerId": "I9c7LNtijU3gyCJVJBcjbshaLtKlktGjatM3oPUw3qCtuw"
+            },
+            ...
+        ]
+        ```
+    </Col>
+</Row>
+
+---
+
+## プレイヤーID、チャンピオンIDでチャンピオンマスタリーを取得する。 {{ tag: 'GET', label: '/lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}/by-champion/{championId}' }}
+
+<Row>
+    <Col>
+        ### Required attributes
+        <Properties>
+            <Property name="championId" type="long" />
+            <Property name="encryptedSummonerId" type="string" />
+        </Properties>
+
+        ### Return value
+        <a href="/riotapidoc/champion-mastery-v4/#champion-mastery-dto">ChampionMasteryDto</a>
+    </Col>
+    <Col sticky>
+        ```bash {{ title: 'cURL' }}
+        curl -G https://jp1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}/by-champion/{championId} \
+        -H "X-Riot-Token: {token}"
+        ```
+        ```json {{ title: 'Response' }}
+        {
+            "championId": 245,
+            "championLevel": 7,
+            "championPoints": 1157995,
+            "lastPlayTime": 1659760490000,
+            "championPointsSinceLastLevel": 1136395,
+            "championPointsUntilNextLevel": 0,
+            "chestGranted": false,
+            "tokensEarned": 0,
+            "summonerId": "I9c7LNtijU3gyCJVJBcjbshaLtKlktGjatM3oPUw3qCtuw"
+        }
+        ```
+    </Col>
+</Row>
+
+---
+
+## champion point数の降順でソートされたトップチャンピオンマスタリーエントリーを指定数取得する。 {{ tag: 'GET', label: '/lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}/top' }}
+
+<Row>
+    <Col>
+        ### Required attributes
+        <Properties>
+            <Property name="encryptedSummonerId" type="string" />
+        </Properties>
+
+        ### Optional attributes
+        <Properties>
+            <Property name="count" type="int" />
+        </Properties>
+
+        ### Return value
+        List[<a href="/riotapidoc/champion-mastery-v4/#champion-mastery-dto">ChampionMasteryDto</a>]
+    </Col>
+    <Col sticky>
+        ```bash {{ title: 'cURL' }}
+        curl -G https://jp1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}/top?count={count} \
+        -H "X-Riot-Token: {token}"
+        ```
+        ```json {{ title: 'Response' }}
+        [
+            {
+                "championId": 245,
+                "championLevel": 7,
+                "championPoints": 1157995,
+                "lastPlayTime": 1659760490000,
+                "championPointsSinceLastLevel": 1136395,
+                "championPointsUntilNextLevel": 0,
+                "chestGranted": false,
+                "tokensEarned": 0,
+                "summonerId": "I9c7LNtijU3gyCJVJBcjbshaLtKlktGjatM3oPUw3qCtuw"
+            },
+            ...
+        ]
+        ```
+    </Col>
+</Row>
+
+---
+
+## 個々のチャンピオンのmasteryレベルを合計した、プレイヤーのトータルマスタリースコアを取得します。 {{ tag: 'GET', label: '/lol/champion-mastery/v4/scores/by-summoner/{encryptedSummonerId}' }}
+
+<Row>
+    <Col>
+        ### Required attributes
+        <Properties>
+            <Property name="encryptedSummonerId" type="string" />
+        </Properties>
+        ### Return value
+        int
+    </Col>
+    <Col sticky>
+        ```bash {{ title: 'cURL' }}
+        curl -G https://jp1.api.riotgames.com/lol/champion-mastery/v4/scores/by-summoner/{encryptedSummonerId} \
+        -H "X-Riot-Token: {token}"
+        ```
+        ```json {{ title: 'Response' }}
+        288
+        ```
+    </Col>
+</Row>
+
+---
