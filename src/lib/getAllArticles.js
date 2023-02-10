@@ -1,11 +1,10 @@
 import glob from 'fast-glob'
 import * as path from 'path'
-import Parser from 'rss-parser'
 
 async function importArticle(articleFilename) {
   let { meta, default: component } = await import(
-    `../pages/articles/${articleFilename}`
-  )
+      `../pages/articles/${articleFilename}`
+      )
   return {
     slug: articleFilename.replace(/(\/index)?\.mdx$/, ''),
     ...meta,
@@ -14,6 +13,11 @@ async function importArticle(articleFilename) {
 }
 
 export async function getAllArticles() {
-  const feed = await new Parser().parseURL('https://qiita.com/ta9to/feed')
-  return feed.items;
+  let articleFilenames = await glob(['*.mdx', '*/index.mdx'], {
+    cwd: path.join(process.cwd(), 'src/pages/articles'),
+  })
+
+  let articles = await Promise.all(articleFilenames.map(importArticle))
+
+  return articles.sort((a, z) => new Date(z.date) - new Date(a.date))
 }
