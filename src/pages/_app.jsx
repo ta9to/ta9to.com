@@ -54,7 +54,7 @@ export default function App({ Component, pageProps, router }) {
     usePageView()
     let previousPathname = usePrevious(router.pathname)
     const isPodcast = router.pathname.startsWith('/podcast')
-    const isRiotApiDoc = router.pathname.startsWith('/riotapidoc')
+    const isOpenAI = router.pathname.startsWith('/openai')
     if (process.browser && isPodcast) {
         document.documentElement.classList.remove('dark')
     }
@@ -62,7 +62,7 @@ export default function App({ Component, pageProps, router }) {
     return (
         <>
             <GoogleAnalytics />
-            {!isPodcast && !isRiotApiDoc && (
+            {!isPodcast && !isOpenAI && (
                 <>
                     <div className="fixed inset-0 flex justify-center sm:px-8">
                         <div className="flex w-full max-w-7xl lg:px-8">
@@ -85,21 +85,9 @@ export default function App({ Component, pageProps, router }) {
                     </Layout>
                 </AudioProvider>
             )}
-            {isRiotApiDoc && (
+            {isOpenAI && (
                 <>
-                    <Head>
-                        {_router.pathname === '/riotapidoc' ? (
-                            <title>Protocol API Reference</title>
-                        ) : (
-                            <title>{`${pageProps.title} - Protocol API Reference`}</title>
-                        )}
-                        <meta name="description" content={pageProps.description} />
-                    </Head>
-                    <MDXProvider components={mdxComponents}>
-                        <RiotApiDocLayout {...pageProps}>
-                            <Component {...pageProps} />
-                        </RiotApiDocLayout>
-                    </MDXProvider>
+                    <Component {...pageProps} />
                 </>
             )}
         </>
