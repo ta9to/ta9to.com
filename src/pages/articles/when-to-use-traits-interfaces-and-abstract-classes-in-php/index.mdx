@@ -1,0 +1,327 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+    author: 'ta9to',
+    date: '2023-08-27',
+    title: "Traits、Interfaces、Abstract Classes、いつ使う？ 『When to use Traits, Interfaces, and Abstract Classes in PHP』動画の要点を解説",
+    description: "PHP開発でTraits、Interfaces、およびAbstract Classesを効率的に使いたいですか？YouTube動画『When to use Traits, Interfaces, and Abstract Classes in PHP』の内容を分かりやすく解説します。",
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+## **はじめに**
+
+こんにちは、PHP開発者の皆さん！今日は、Traits、Interfaces、そしてAbstract Classesといった、PHPプログラミングにおける3つの重要な概念に焦点を当てます。これらはいつ使うべきなのか、それぞれの特性とは何か。
+それを説明している海外のYouTube動画を見つけたので、その内容を分かりやすく解説します。
+
+<iframe className={"w-full h-[315px]"} src="https://www.youtube.com/embed/x9bj30cWolA?si=L3xxiw9WC9OWMVgm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## **基本概念の説明**
+
+### **Traits**
+
+>PHP は、コードを再利用するための「トレイト」という仕組みを実装しています。
+
+>トレイトは、PHP のような単一継承言語でコードを再利用するための仕組みのひとつです。 トレイトは、単一継承の制約を減らすために作られたもので、 いくつかのメソッド群を異なるクラス階層にある独立したクラスで再利用できるようにします。 トレイトとクラスを組み合わせた構文は複雑さを軽減させてくれ、 多重継承や Mixin に関連するありがちな問題を回避することもできます。
+
+>トレイトはクラスと似ていますが、トレイトは単にいくつかの機能をまとめるためだけのものです。 トレイト自身のインスタンスを作成することはできません。 昔ながらの継承に機能を加えて、振る舞いを水平方向で構成できるようになります。 つまり、継承しなくてもクラスのメンバーに追加できるようになります。
+
+[PHP: トレイト - Manual](https://www.php.net/manual/ja/language.oop5.traits.php)
+
+### **Interfaces**
+
+>オブジェクト インターフェイスを使うと、 メソッドの実装を定義せずに、 クラスが実装する必要があるメソッドを指定するコードを作成できます。 インターフェイス は クラス や トレイト と名前空間を共有するので、 それらと同じ名前を使ってはいけません。
+
+>インターフェイスは通常のクラスと同様に定義することができますが、 キーワード class のかわりに interface を用います。またメソッドの実装は全く定義しません。
+
+>インターフェイス内で宣言される全てのメソッドは public である必要があります。 これは、インターフェイスの特性によります。
+
+>インターフェイスには、ふたつの互いを補完する役割があります。
+
+>同じインターフェイスを実装していることで、 開発者が交換可能な異なるクラスを作成できるようにします。 同じインターフェイスを持つクラスによくある例として、 複数のデータベースにアクセスするサービスや 決済のゲートウェイ、 異なるキャッシュ戦略が挙げられます。 実装が異なっていても、 それを使うコードに変更を加えることなく、それらを交換することができます。
+メソッドや関数が、インターフェイスを満たす引数を受け付け、 操作できるようにします。 オブジェクトが何をするのかや、 どう実装されているのかを気にする必要はありません。 振る舞いの重要性を説明するために、 Iterable や Cacheable、 Renderable のような名前が付けられることがよくあります。
+インターフェイスは、 マジックメソッド を宣言しても問題ありません。
+
+[PHP: オブジェクト インターフェイス - Manual](https://www.php.net/manual/ja/language.oop5.interfaces.php)
+
+### **Abstract Classes**
+
+>PHP には、抽象クラスと抽象メソッドの機能があります。 abstract として定義されたクラスのインスタンスを生成することはできません。 1つ以上の抽象メソッドを含む全てのクラスもまた抽象クラスとなります。 abstract として定義されたメソッドは、そのメソッドのシグネチャを宣言するのみで、 実装を定義することはできません。
+
+>抽象クラスから継承する際、親クラスの宣言で abstract としてマークされた 全てのメソッドは、子クラスで定義されなければなりません。加えて、 オブジェクトの継承 と シグネチャの互換性に関するルール に従わなければいけません。
+
+[PHP: クラスの抽象化 - Manual](https://www.php.net/manual/ja/language.oop5.abstract.php)
+
+## **それぞれの特性**
+
+### **Traitsの特性**
+
+- コードの再利用: トレイトは主にコードの再利用を目的としています。同じメソッドを複数のクラスで使用する場面で役立ちます。
+- 継承と違うところ: トレイトはクラスの継承とは異なり、同一クラス内で複数のトレイトを使用することができます。
+- 柔軟な優先度設定: 複数のトレイトが同じメソッドを持っている場合、insteadofとasオペレータを使用してそのクラスで利用する方を定義することができます。
+
+### **Interfacesの特性**
+
+- 契約の定義: インターフェースは、特定のクラスが実装しなければならないメソッドの名前、引数、戻り値、アクセス権限を定義します。
+- 多重継承: PHPは単一継承しかサポートしていないため、インターフェースを用いて多重継承のような挙動を模倣することができます。
+- 型ヒント: インターフェースは引数の型として使用できるため、疎結合なコードを書く際に役立ちます。
+
+### **Abstract Classesの特性**
+
+- 共通の実装: 抽象クラスは共通のメソッドの実装を持つことができますが、インターフェースは実装の内容を持つことはできません。
+- 抽象メソッド: 抽象メソッドを定義することで、派生クラスにメソッドの実装を強制することができます。
+- 継承の制限: 抽象クラスは単一継承の制約を受けます。そのため、一つのクラスは一つの抽象クラスしか継承できません。
+
+## **使用場面と例**
+
+### **Traitsの使用場面**
+
+- ロギング機能の共有
+- ユーティリティ関数の共有
+
+↑のような、様々なクラスで共通して利用するような処理がある時、それをトレイトに実装し、クラスがそれを共有します。
+動画ではコンサート、映画、演劇などのイベント用アプリケーションの開発において、「getMenu()」のような関数をtraitで実装して複数のクラスで利用する例が紹介されています。
+
+```php
+<?php
+
+trait MenuTrait {
+    public function getMenu() {
+        return "This is a menu for " . $this->getType();
+    }
+}
+
+class Concert {
+    use MenuTrait;
+
+    public function getType() {
+        return "Concert";
+    }
+}
+
+class Movie {
+    use MenuTrait;
+
+    public function getType() {
+        return "Movie";
+    }
+}
+
+class Theater {
+    use MenuTrait;
+
+    public function getType() {
+        return "Theater";
+    }
+}
+
+$concert = new Concert();
+echo $concert->getMenu();  // Output: "This is a menu for Concert"
+
+$movie = new Movie();
+echo $movie->getMenu();  // Output: "This is a menu for Movie"
+
+$theater = new Theater();
+echo $theater->getMenu();  // Output: "This is a menu for Theater"
+```
+
+### **Interfacesの使用場面**
+
+- APIの定義
+- プラグインアーキテクチャ
+
+先述したコンサート、映画、演劇の例において、チケットの値段を返す関数をインターフェイスで定義し、それを各クラスで実装して疎結合なコードを書く例を以下に示します。
+
+```php
+<?php
+
+trait MenuTrait {
+    public function getMenu() {
+        return "This is a menu for " . $this->getType();
+    }
+}
+
+interface PriceInterface {
+    public function getPrice(): int;
+}
+
+class Concert implements PriceInterface {
+    use MenuTrait;
+
+    public function getType() {
+        return "Concert";
+    }
+
+    public function getPrice(): int {
+        return 5000;
+    }
+}
+
+class Movie implements PriceInterface {
+    use MenuTrait;
+
+    public function getType() {
+        return "Movie";
+    }
+
+    public function getPrice(): int {
+        return 1500;
+    }
+}
+
+class Theater implements PriceInterface {
+    use MenuTrait;
+
+    public function getType() {
+        return "Theater";
+    }
+
+    public function getPrice(): int {
+        return 3000;
+    }
+}
+
+// PriceInterfaceが実装されたgetPriceメソッドを有していることが保証されたクラスのインスタンスのみ受け付ける
+function purchase(PriceInterface $ticket) {
+    echo "Purchased a ticket for " . $ticket->getType() . " at price " . $ticket->getPrice() . " yen.\n";
+}
+
+$concert = new Concert();
+$movie = new Movie();
+$theater = new Theater();
+
+purchase($concert);  // Output: "Purchased a ticket for Concert at price 5000 yen."
+purchase($movie);    // Output: "Purchased a ticket for Movie at price 1500 yen."
+purchase($theater);  // Output: "Purchased a ticket for Theater at price 3000 yen."
+```
+
+### **Abstract Classesの使用場面**
+
+- 共通の基底クラスとして
+
+```php
+<?php
+
+trait MenuTrait {
+    public function getMenu() {
+        return "This is a menu for " . $this->getType();
+    }
+}
+
+interface PriceInterface {
+    public function getPrice(): int;
+}
+
+abstract class Event {
+    abstract public function getType(): string;
+
+    public function getVenue(): string {
+        return "Default Venue";
+    }
+}
+
+class Concert extends Event implements PriceInterface {
+    use MenuTrait;
+
+    public function getType(): string {
+        return "Concert";
+    }
+
+    public function getPrice(): int {
+        return 5000;
+    }
+}
+
+class Movie extends Event implements PriceInterface {
+    use MenuTrait;
+
+    public function getType(): string {
+        return "Movie";
+    }
+
+    public function getPrice(): int {
+        return 1500;
+    }
+
+    public function getVenue(): string {
+        return "Movie Theater";
+    }
+}
+
+class Theater extends Event implements PriceInterface {
+    use MenuTrait;
+
+    public function getType(): string {
+        return "Theater";
+    }
+
+    public function getPrice(): int {
+        return 3000;
+    }
+}
+
+function purchase(PriceInterface $ticket) {
+    echo "Purchased a ticket for " . $ticket->getType();
+    echo " at " . $ticket->getVenue();
+    echo " for " . $ticket->getPrice() . " yen.\n";
+}
+
+$concert = new Concert();
+$movie = new Movie();
+$theater = new Theater();
+
+purchase($concert);  // Output: "Purchased a ticket for Concert at Default Venue for 5000 yen."
+purchase($movie);    // Output: "Purchased a ticket for Movie at Movie Theater for 1500 yen."
+purchase($theater);  // Output: "Purchased a ticket for Theater at Default Venue for 3000 yen."
+```
+
+## **最適な選択のポイント**
+
+### **柔軟性**
+
+Traitsは最も柔軟ですが、反面制約が少ないことで複雑化しやすいため特に単一責任原則に気をつけて運用しましょう。
+
+### **保守性**
+
+Interfacesは継承関係を明確にし設計意図をよく表現するため、うまく使えば保守性、拡張性が高くなります。
+
+### **再利用性**
+
+Abstract Classesは一部の実装を提供できるため、再利用性が高いです。
+
+## **注意点と制約**
+
+### **Traitsの制約**
+
+- 名前の衝突が起きる時は、利用するトレイトを指定できますがそれが増えてくるとカオスになるので注意。
+
+### **Interfacesの制約**
+
+- 特になし。
+
+### **Abstract Classesの制約**
+
+- 一度継承すると、他のクラスを継承できないためどこまでを継承で定義し、どこからをトレイトで共有するかなど慎重に考える必要があります。
+
+## **まとめ**
+
+Traits、Interfaces、Abstract Classesはそれぞれ異なる用途と制約があります。うまく利用できれば設計に柔軟性、保守性、再利用性をもたらすことができるので、ぜひ活用していきましょう。
+
+## **FAQ**
+
+1. **Traitsとは何ですか？**
+ - コードの一部を複数のクラスで再利用するための機能です。
+
+2. **InterfacesとAbstract Classesの主な違いは？**
+ - Interfacesはメソッドの名前や引数のみ定義しますが、Abstract Classesは内容の実装も可能です。
+
+3. **Traitsはどのように使うのが最適か？**
+ - コードの一部が多くのクラスで共有される場合に最適です。
+
+4. **Interfacesはどのような場合に使用するべきですか？**
+ - 明確な契約が必要な場合や、プラグインアーキテクチャを設計する際に便利です。
+
+5. **Abstract Classesにはどのような制約がありますか？**
+ - 他のクラスを継承することができなくなるという制約があります。
+
+
