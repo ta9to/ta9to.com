@@ -3,15 +3,32 @@ import Image from 'next/image'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import lsm from '@/images/27135243-1659181405482-7ea98c364181.jpeg'
+import logoLSM from '@/images/logos/lsm.png'
+import logoAIToolBox from '@/images/logos/ai-toolbox.png'
+import logoLoLDB from '@/images/logos/Aatrox.png'
 
 const projects = [
-  {
-    name: 'Lazy Saturday Morning',
-    description: 'engineer\'s podcast',
-    link: { href: '/podcast', label: 'ta9to.com' },
-    logo: lsm,
-  },
+    {
+        name: 'Lazy Saturday Morning',
+        description:
+            'Podcast about the latest in tech, design, and everything in between.',
+        link: { href: 'https://podcasters.spotify.com/pod/show/lsmfm', label: 'podcasters.spotify.com' },
+        logo: logoLSM,
+    },
+    {
+        name: 'AI-ToolBox',
+        description:
+            'Chrome extension that utilizes the Open AI API to help handle a variety of tasks.',
+        link: { href: 'https://chrome.google.com/webstore/detail/ai-toolbox/ackglalpddbloinjajpalnpbkhpbjpfd', label: 'chrome.google.com' },
+        logo: logoAIToolBox,
+    },
+    {
+        name: 'LoLDB',
+        description:
+            'Database site using Riot Games API, developed for learning Astro.js.',
+        link: { href: 'https://loldb.app/', label: 'loldb.app' },
+        logo: logoLoLDB,
+    },
 ]
 
 function LinkIcon(props) {
@@ -29,15 +46,15 @@ export default function Projects() {
   return (
     <>
       <Head>
-        <title>Projects - TA9TO</title>
+        <title>Projects - Takuto Kudo</title>
         <meta
           name="description"
-          content="Projects"
+          content="Hello and thank you for visiting my project page! As a passionate software engineer, I'm always tinkering with new technologies and building tools that aim to make life easier and more enjoyable. Here, you'll find a carefully curated list of projects that I've worked on, each with its own unique set of challenges and rewards."
         />
       </Head>
       <SimpleLayout
-        title="Projects"
-        intro="projects."
+        title="Welcome to My Projects!"
+        intro="Hello and thank you for visiting my project page! As a passionate software engineer, I'm always tinkering with new technologies and building tools that aim to make life easier and more enjoyable. Here, you'll find a carefully curated list of projects that I've worked on, each with its own unique set of challenges and rewards."
       >
         <ul
           role="list"

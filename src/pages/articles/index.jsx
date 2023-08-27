@@ -10,7 +10,7 @@ function Article({ article }) {
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
         <Card.Title href={`/articles/${article.slug}`}>
-          {article.title}
+          <span lang={"ja"}>{article.title}</span>
         </Card.Title>
         <Card.Eyebrow
           as="time"
@@ -20,7 +20,7 @@ function Article({ article }) {
         >
           {formatDate(article.date)}
         </Card.Eyebrow>
-        <Card.Description>{article.description}</Card.Description>
+        <Card.Description><span lang={"ja"}>{article.description}</span></Card.Description>
         <Card.Cta>Read article</Card.Cta>
       </Card>
       <Card.Eyebrow
@@ -38,15 +38,15 @@ export default function ArticlesIndex({ articles }) {
   return (
     <>
       <Head>
-        <title>Articles - TA9TO</title>
+        <title>Articles - Takuto Kudo</title>
         <meta
           name="description"
-          content="articles."
+          content="All of my long-form thoughts on programming, management, organization building, and more, collected in chronological order."
         />
       </Head>
       <SimpleLayout
-        title="Articles"
-        intro="articles."
+        title="Writing on software design, organization building, and the interests"
+        intro="All of my long-form thoughts on programming, management, organization building, and more, collected in chronological order."
       >
         <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
           <div className="flex max-w-3xl flex-col space-y-16">

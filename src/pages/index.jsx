@@ -7,14 +7,16 @@ import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import {
-  TwitterIcon,
   GitHubIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  TwitterIcon,
 } from '@/components/SocialIcons'
 import image1 from '@/images/photos/image-1.jpg'
-import image2 from '@/images/photos/redbull.jpeg'
-import image3 from '@/images/photos/image-1.jpg'
-import image4 from '@/images/photos/build_s1_azuki.png'
-import image5 from '@/images/photos/image-1.jpg'
+import image2 from '@/images/photos/image-2.jpg'
+import image3 from '@/images/photos/image-3.jpg'
+import image4 from '@/images/photos/image-4.jpg'
+import image5 from '@/images/photos/image-5.jpg'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
@@ -82,12 +84,12 @@ function Article({ article }) {
   return (
     <Card as="article">
       <Card.Title href={`/articles/${article.slug}`}>
-        {article.title}
+        <span lang={"ja"}>{article.title}</span>
       </Card.Title>
       <Card.Eyebrow as="time" dateTime={article.date} decorate>
         {formatDate(article.date)}
       </Card.Eyebrow>
-      <Card.Description>{article.description}</Card.Description>
+      <Card.Description><span lang={"ja"}>{article.description}</span></Card.Description>
       <Card.Cta>Read article</Card.Cta>
     </Card>
   )
@@ -134,40 +136,34 @@ function Resume() {
   let resume = [
     {
       company: 'Nyle',
-      title: 'MediaDiv / VPoE',
-      start: '2022',
+      title: 'VPoE, Engineering Manager',
+      start: '2020',
       end: {
         label: 'Present',
-        dateTime: new Date().getFullYear(),
+        dateTime: new Date().getFullYear().toString(),
       },
     },
     {
       company: 'Nyle',
-      title: 'MediaDiv / Software Engineer',
-      start: '2017',
-      end: '2021',
+      title: 'Engineering Manager',
+      start: '2018',
+      end: '2019',
     },
     {
-      company: 'Ice',
+      company: 'ICE',
       title: 'CEO',
       start: '2014',
-      end: '2017',
+      end: '2018',
     },
     {
-      company: 'Ednity',
-      title: 'Lead Engineer',
+      company: 'Kayac',
+      title: 'Backend engineer',
       start: '2013',
       end: '2014',
     },
     {
-      company: 'Kayac',
-      title: 'Web Engineer',
-      start: '2013',
-      end: '2013',
-    },
-    {
       company: 'Volare',
-      title: 'Web Engineer',
+      title: 'Web engineer',
       start: '2012',
       end: '2013',
     },
@@ -253,31 +249,43 @@ export default function Home({ articles }) {
     <>
       <Head>
         <title>
-          TA9TO - Software engineer
+          Takuto Kudo - Software engineer
         </title>
         <meta
           name="description"
-          content="I’m TA9TO, a software designer based in Asia/Tokyo."
+          content="I’m Takuto, a software engineer based in Asia/Tokyo. I’m the VPoE and Engineering Manager at Nyle, where we develop application that empower people."
         />
       </Head>
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Software engineer.
+            Software engineer, VPoE, and engineering influencer.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m TA9TO, a software engineer based in Asia/Tokyo.
+            I’m Takuto, a software engineer based in Asia/Tokyo.
+            I’m the VPoE and Engineering Manager at Nyle, where we develop application that empower people.
+            NFT Azuki #4306, BEANZ #14481.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
-              href="https://twitter.com/ta99to"
-              aria-label="Follow on Twitter"
-              icon={TwitterIcon}
+                href="https://twitter.com/ta99to"
+                aria-label="Follow on Twitter"
+                icon={TwitterIcon}
             />
             <SocialLink
-              href="https://github.com/ta9to"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
+                href="https://www.instagram.com/ta99to/"
+                aria-label="Follow on Instagram"
+                icon={InstagramIcon}
+            />
+            <SocialLink
+                href="https://github.com/ta9to"
+                aria-label="Follow on GitHub"
+                icon={GitHubIcon}
+            />
+            <SocialLink
+                href="https://www.linkedin.com/in/ta9to/"
+                aria-label="Follow on LinkedIn"
+                icon={LinkedInIcon}
             />
           </div>
         </div>

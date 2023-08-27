@@ -5,10 +5,12 @@ import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import {
-  TwitterIcon,
   GitHubIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  TwitterIcon,
 } from '@/components/SocialIcons'
-import portraitImage from '@/images/d6f09604-d117-46d9-979d-205888c3e906.png'
+import portraitImage from '@/images/portrait.jpg'
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
@@ -39,10 +41,10 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About - TA9TO</title>
+        <title>About - Takuto Kudo</title>
         <meta
           name="description"
-          content="I’m TA9TO, a software designer based in Asia/Tokyo."
+          content="I’m Takuto Kudo. I live in Asia/Tokyo, where I develop the future."
         />
       </Head>
       <Container className="mt-16 sm:mt-32">
@@ -59,10 +61,24 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              Hello, world!
+              I’m Takuto Kudo. I live in Asia/Tokyo, where I develop the future.
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-              <p>I’m TA9TO, a software engineer based in Asia/Tokyo.</p>
+              <p>
+                My journey into the world of technology began at university, where I immersed myself in computer science. Intrigued by the endless possibilities, I knew this was a realm where I could not only solve complex problems but also create value.
+              </p>
+              <p>
+                My first taste of the industry came through an internship at a venture company called Volaré. That experience was transformative. I learned not just the nuances of web development, but also the essence of teamwork and the exhilarating process of building a company from the ground up.
+              </p>
+              <p>
+                Fueled by the desire to make an impact, I shifted gears and joined a few different companies, gaining diverse experiences. In 2014, a friend and I decided to take a leap of faith. Using our own funds, we started a small company focused solely on contracted development projects. That journey led me to work on a wide array of challenges — from handling various software development projects to launching a restaurant and even working on long-term overseas assignments.
+              </p>
+              <p>
+                In 2018, I found myself rejoining Volare, now renamed Nyle, as an Engineering Manager. I was tasked with launching new businesses and spearheading reforms within the engineering team. By 2020, I assumed the role of VPoE, taking responsibility for organizational and technical strategies within the engineering team.
+              </p>
+              <p>
+                Presently, I am deeply involved in application and product development, with a focus on GAI. My quest for innovation and excellence continues, as I am more committed than ever to shape technologies that bring value, efficiency, and meaning to our lives.
+              </p>
             </div>
           </div>
           <div className="lg:pl-20">
@@ -70,13 +86,19 @@ export default function About() {
               <SocialLink href="https://twitter.com/ta99to" icon={TwitterIcon}>
                 Follow on Twitter
               </SocialLink>
+              <SocialLink href="https://www.instagram.com/ta99to/" icon={InstagramIcon} className="mt-4">
+                Follow on Instagram
+              </SocialLink>
               <SocialLink href="https://github.com/ta9to" icon={GitHubIcon} className="mt-4">
                 Follow on GitHub
               </SocialLink>
+              <SocialLink href="https://www.linkedin.com/in/ta9to/" icon={LinkedInIcon} className="mt-4">
+                Follow on LinkedIn
+              </SocialLink>
               <SocialLink
-                href="mailto:takuto_kd@nyle.co.jp"
-                icon={MailIcon}
-                className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
+                  href="mailto:takuto_kd@nyle.co.jp"
+                  icon={MailIcon}
+                  className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
               >
                 takuto_kd@nyle.co.jp
               </SocialLink>

@@ -24,9 +24,10 @@ export function Footer() {
                 <NavLink href="/about">About</NavLink>
                 <NavLink href="/articles/">Articles</NavLink>
                 <NavLink href="/projects/">Projects</NavLink>
+                <NavLink href="/speaking/">Speaking</NavLink>
               </div>
               <p className="text-sm text-zinc-400 dark:text-zinc-500">
-                &copy; {new Date().getFullYear()} TA9TO. All rights
+                &copy; {new Date().getFullYear()} Takuto Kudo. All rights
                 reserved.
               </p>
             </div>

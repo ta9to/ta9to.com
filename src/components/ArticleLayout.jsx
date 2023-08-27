@@ -36,7 +36,7 @@ export function ArticleLayout({
         <title>{`${meta.title} - TA9TO`}</title>
         <meta name="description" content={meta.description} />
       </Head>
-      <Container className="mt-16 lg:mt-32">
+      <Container className="mt-16 lg:mt-32" lang={"ja"}>
         <div className="xl:relative">
           <div className="mx-auto max-w-2xl">
             {previousPathname && (
