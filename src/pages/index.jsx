@@ -147,7 +147,7 @@ function Resume() {
       company: 'Nyle',
       title: 'Engineering Manager',
       start: '2018',
-      end: '2019',
+      end: '2020',
     },
     {
       company: 'ICE',
